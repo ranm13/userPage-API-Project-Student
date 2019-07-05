@@ -11,6 +11,7 @@ class APIManager {
           })
     }
     
+    //Random number generator
     getRandomInt = (max, min=0) => (Math.floor(Math.random() * max) + min)
     
     getData = () => this.data
@@ -21,7 +22,6 @@ class APIManager {
         this.getAjax('https://randomuser.me/api/?nat=gb,us,au&results=7', (apiData) => {
             const results = apiData.results
             const data = this.data
-            const upperFirst = this.upperCaseFirstLetter
             data.user = {picture: results[0].picture.large,
             firstName: results[0].name.first,
             lastName: results[0].name.last,
@@ -42,9 +42,8 @@ class APIManager {
         
         //Pokemon API
         this.getAjax(`https://pokeapi.co/api/v2/pokemon/${this.getRandomInt(251, 1)}/`, (apiData) => {
-            const data = this.data
             let name = apiData.name
-            data.pokemon = {name: name, pic: apiData.sprites.front_default}
+            this.data.pokemon = {name: name, pic: apiData.sprites.front_default}
         })
 
         //Bacon Ipsum API

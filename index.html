@@ -8,14 +8,17 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-
 </head>
-
 <body>
     <div class="container">
         <div class="buttons">
             <button onclick=loadData()>Load User Data</button>
             <button onclick=renderData()>Display User</button>
+            <button onclick=saveUserPage()>Save Page</button>
+            <div class="dropup-load">
+                <button onmouseover=loadUserPage()>Load Page</button>
+                <div class="dropup-content"></div>
+            </div>
         </div>
         <div class="user-container"></div>
         <div class="quote-container"></div>
@@ -64,6 +67,12 @@
         <p>Favorite quote:</p>
         <span><i>"{{quote}}"</i> <br>
             - Kanye West</span>
+    </script>
+    <!-- ------------------------------------------------------ -->
+    <script id="dropup-content-template" type="text/x-handlebars-template">
+    {{#each object as |item|}}
+        <p class="users-to-load">{{toProperCase item}}</p>
+    {{/each}}
     </script>
     <!-- ------------------------------------------------------ -->
     <script src="Renderer.js"></script>
