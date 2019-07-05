@@ -1,6 +1,7 @@
 class Renderer {
     
-    handelbarFunc(templateId, objToTemplate, appendToPlace) {
+   renderHendelbar(templateId, objToTemplate, appendToPlace) {
+        $(appendToPlace).empty()
         const source = $(templateId).html();
         const template = Handlebars.compile(source)
         const newHTML = template(objToTemplate);
@@ -8,33 +9,27 @@ class Renderer {
     }
 
     _renderUsers(users) {
-        $(".user-container").empty()
-        this.handelbarFunc("#user-template", users, ".user-container" )
+        this.renderHendelbar("#user-template", users, ".user-container" )
     }
 
     _renderFriends(users) { 
-        $(".friends-container").empty()
-        this.handelbarFunc("#user-friends-template", users, ".friends-container" )
+        this.renderHendelbar("#user-friends-template", users, ".friends-container" )
     }
 
     _renderQuote(quoteInfo) {
-        $(".quote-container").empty()
-        this.handelbarFunc("#quote-template", quoteInfo, ".quote-container" )
+        this.renderHendelbar("#quote-template", quoteInfo, ".quote-container" )
     }
 
     _renderPokemon(pokemonInfo) { 
-        $(".pokemon-container").empty()
-        this.handelbarFunc("#pokemon-template", pokemonInfo, ".pokemon-container" )
+        this.renderHendelbar("#pokemon-template", pokemonInfo, ".pokemon-container" )
     }
 
     _renderMeat(meatText) { 
-        $(".meat-container").empty()
-        this.handelbarFunc("#meat-template", meatText, ".meat-container" )
+        this.renderHendelbar("#meat-template", meatText, ".meat-container" )
     }
 
     renderLoadedData(loadedData){
-        $(".dropup-content").empty()
-        this.handelbarFunc("#dropup-content-template", loadedData, ".dropup-content" )
+        this.renderHendelbar("#dropup-content-template", loadedData, ".dropup-content" )
     }
 
     render(data){
