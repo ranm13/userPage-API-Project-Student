@@ -13,8 +13,11 @@ const saveUserPage = () => {
 
 //loading the keys of saved users into the dropup menu
 const loadUserPage = () => {
-    let object = Object.keys(JSON.parse(localStorage.users))
-    renderer.renderLoadedData({object})
+    let keys = Object.keys(JSON.parse(localStorage.users))
+    let listOfSaved = JSON.parse(localStorage.users)
+    let namesAndPics = []
+    keys.forEach(e => {namesAndPics.push({name: e, pic: listOfSaved[e].user.picture})});
+    renderer.renderLoadedData({namesAndPics})
 }
 
 //clicking on each user name will render his page 

@@ -1,0 +1,24 @@
+{
+  "name": "userpage-api-project-student",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranm13/userPage-API-Project-Student.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ranm13/userPage-API-Project-Student/issues"
+  },
+  "homepage": "https://github.com/ranm13/userPage-API-Project-Student#readme",
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "handlebars": "^4.1.2",
+    "jquery": "^3.4.1"
+  }
+}
