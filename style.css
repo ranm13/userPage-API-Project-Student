@@ -147,7 +147,7 @@ h3{
 }
 .dropup-load{
     position: relative;
-    display: inline-block
+    display: inline-block;
 }
 
 .dropup-content {
@@ -155,30 +155,24 @@ h3{
     position: absolute;
     bottom: 50px;
     background-color: #f1f1f1;
-    min-width: 160px;
+    width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
   }
   
-  .users-to-load {
+.users-to-load {
     font-family: 'Quicksand', sans-serif;
     color: black;
     padding: 12px 16px;
-    display: block;
     cursor: pointer;
   }
   
-  .dropup-content p:hover {
+.dropup-content p:hover {
     background-color: #ddd
     }
   
-  .dropup-load:hover .dropup-content {
+.dropup-load:hover .dropup-content {
     display: block;
-  }
-  
-  .dropup-load:hover .dropbtn {
-    background-color: #2980B9;
-  }
+    }
 
 h2{
     margin-bottom: 15px;

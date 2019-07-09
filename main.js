@@ -16,7 +16,7 @@ const loadUserPage = () => {
     let keys = Object.keys(JSON.parse(localStorage.users))
     let listOfSaved = JSON.parse(localStorage.users)
     let namesAndPics = []
-    keys.forEach(e => {namesAndPics.push({name: e, pic: listOfSaved[e].user.picture})});
+    keys.forEach(e => namesAndPics.push({name: e, pic: listOfSaved[e].user.picture}));
     renderer.renderLoadedData({namesAndPics})
 }
 
