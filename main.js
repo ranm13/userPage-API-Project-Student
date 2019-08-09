@@ -4,20 +4,20 @@ const renderer = new Renderer
 const loadData = () => apimanager.loadData()
 const renderData = () => renderer.render(apimanager.getData())
 
-const saveUserPage = () => {
-    let name = apimanager.getData().user.firstName + " " + apimanager.getData().user.lastName
+const saveUserPage = function(){
+    let currentUserData = apimanager.getData()
+    let name = currentUserData.user.firstName + " " + currentUserData.user.lastName
     let users = JSON.parse(localStorage.users || "{}")
-    users[name] = apimanager.getData()
+    users[name] = currentUserData
     localStorage.users = JSON.stringify(users)
 }
 
 //loading the keys of saved users into the dropup menu
-const loadUserPage = () => {
-    let keys = Object.keys(JSON.parse(localStorage.users))
-    let listOfSaved = JSON.parse(localStorage.users)
-    let namesAndPics = []
-    keys.forEach(e => namesAndPics.push({name: e, pic: listOfSaved[e].user.picture}));
-    renderer.renderLoadedData({namesAndPics})
+const loadUserPage = function(){
+    let SavedUsersList = JSON.parse(localStorage.users)
+    let names = Object.keys(SavedUsersList)
+    let savedUsersData = names.map(n => ({name: n, pic: SavedUsersList[n].user.picture}))
+    renderer.renderLoadedData({savedUsersData})
 }
 
 //clicking on each user name will render his page 

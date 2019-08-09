@@ -3,14 +3,6 @@ class APIManager {
         this.data = {}    
     }
 
-    getAjax = (url, func) => {
-        $.ajax({
-            method: "GET",
-            url: url,
-            success: func
-          })
-    }
-    
     //Random number generator
     getRandomInt = (max, min=0) => (Math.floor(Math.random() * max) + min)
     
@@ -19,7 +11,7 @@ class APIManager {
     loadData(){
 
         //Random User Generator API
-        this.getAjax('https://randomuser.me/api/?nat=gb,us,au&results=7', (apiData) => {
+        $.get('https://randomuser.me/api/?nat=gb,us,au&results=7', (apiData) => {
             const results = apiData.results
             const data = this.data
             data.user = {picture: results[0].picture.large,
@@ -36,19 +28,15 @@ class APIManager {
           })
         
         //Random Quote Generator API
-        this.getAjax('https://api.kanye.rest', (apiData) => {
-            this.data.quote = apiData.quote
-          })
+        $.get('https://api.kanye.rest', (apiData) => this.data.quote = apiData.quote)
         
         //Pokemon API
-        this.getAjax(`https://pokeapi.co/api/v2/pokemon/${this.getRandomInt(251, 1)}/`, (apiData) => {
+        $.get(`https://pokeapi.co/api/v2/pokemon/${this.getRandomInt(251, 1)}/`, (apiData) => {
             let name = apiData.name
             this.data.pokemon = {name: name, pic: apiData.sprites.front_default}
         })
 
         //Bacon Ipsum API
-        this.getAjax('https://baconipsum.com/api/?type=all-meat&paras=1', (apiData) => {
-            this.data.aboutMeat = apiData[0]
-        })
+        $.get('https://baconipsum.com/api/?type=all-meat&paras=1', (apiData) => this.data.aboutMeat = apiData[0])
     }
 }        
